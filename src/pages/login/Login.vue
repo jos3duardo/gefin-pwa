@@ -25,12 +25,12 @@
                   <label for="icon_telephone">Password</label>
                 </div>
               </div>
-              <div class="row">
-                <label>
-                  <input type="checkbox" class="filled-in" checked="checked" />
-                  <span>Permanecer Conectados</span>
-                </label>
-              </div>
+<!--              <div class="row">-->
+<!--                <label>-->
+<!--                  <input type="checkbox" class="filled-in" checked="checked" />-->
+<!--                  <span>Permanecer Conectados</span>-->
+<!--                </label>-->
+<!--              </div>-->
               <div class="row">
                 <button class="btn waves-effect waves-light" v-on:click="login()">Entrar
                   <i class="material-icons right">send</i>
@@ -51,7 +51,7 @@
 </template>
 
 <script>
-  import LoginTemplate from "../templates/loginTemplate";
+  import LoginTemplate from "../../templates/loginTemplate";
 
   export default {
     name: 'Login',
@@ -73,6 +73,24 @@
         })
         .then( response => {
           console.log(response)
+          if(response.data.status){
+            // login com sucesso
+            this.$store.commit('setUsuario', response.data.user)
+            sessionStorage.setItem('usuario', JSON.stringify(response.data.user))
+            this.$router.push('/')
+          }else if(response.data.status === false && response.data.validate){
+            // erros de validação
+            console.log('erros de validação')
+            let errors = '';
+            for (let erro of Object.values(response.data.errors)){
+              errors = erro + " ";
+            }
+            alert(errors)
+          }else{
+            //login não existe
+            console.log('login não existe')
+            alert('Login invalido')
+          }
         } )
         .catch(e => {
           console.warn('Error: ', e)
