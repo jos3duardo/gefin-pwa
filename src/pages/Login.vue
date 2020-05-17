@@ -12,34 +12,34 @@
           <div class="card-content">
           <div class="row">
             <br>
-            <form class="col s12 m12">
+            <div class="col s12 m12">
               <div class="row">
                 <div class="input-field col s12 m12">
                   <i class="material-icons prefix">email</i>
-                  <input id="icon_prefix" type="text" class="validate" autocomplete="off">
+                  <input id="icon_prefix" type="text" class="validate" autocomplete="off" v-model="email">
                   <label for="icon_prefix">Email</label>
                 </div>
                 <div class="input-field col s12 m12">
                   <i class="material-icons prefix">vpn_key</i>
-                  <input id="icon_telephone" type="password" class="validate" autocomplete="off">
+                  <input id="icon_telephone" type="password" class="validate" autocomplete="off" v-model="password">
                   <label for="icon_telephone">Password</label>
                 </div>
               </div>
               <div class="row">
                 <label>
                   <input type="checkbox" class="filled-in" checked="checked" />
-                  <span>Permanecer Conectado</span>
+                  <span>Permanecer Conectados</span>
                 </label>
               </div>
               <div class="row">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Entrar
+                <button class="btn waves-effect waves-light" v-on:click="login()">Entrar
                   <i class="material-icons right">send</i>
                 </button>
                 <button class="btn waves-effect waves-light orange" type="submit" name="action">Cadastrar-se
                   <i class="material-icons right">contacts</i>
                 </button>
               </div>
-            </form>
+            </div>
             </div>
           </div>
           </div>
@@ -60,10 +60,24 @@
     },
     data () {
       return {
-
+        email: '',
+        password: ''
       }
     },
     methods: {
+      login(){
+        console.log(this.$urlAPI+'login')
+        this.$http.post(this.$urlAPI+'login',{
+          email: this.email,
+          password: this.password
+        })
+        .then( response => {
+          console.log(response)
+        } )
+        .catch(e => {
+          console.warn('Error: ', e)
+        })
+      }
 
     },
   }
