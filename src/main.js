@@ -7,26 +7,26 @@ import axios from 'axios'
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
+axios.defaults.withCredentials = true;
+
 Vue.prototype.$http = axios
-Vue.prototype.$urlAPI = 'http://127.0.0.1:8000/api/'
-
-
+Vue.prototype.$urlAPI = 'http://localhost:8000/api/'
 
 const store = new Vuex.Store({
   state: {
-    usuario: sessionStorage.getItem('usuario') ? JSON.parse(sessionStorage.getItem('usuario')) : null,
+    user: sessionStorage.getItem('user') ? JSON.parse(sessionStorage.getItem('user')) : null,
   },
   getters:{
-    getUsuario: state => {
-      return state.usuario
+    getUser: state => {
+      return state.user
     },
     getToken: state => {
-      return state.usuario.token
+      return state.user.token
     }
   },
   mutations: {
-    setUsuario(state, n){
-      state.usuario = n
+    setUser(state, n){
+      state.user = n
     }
   }
 })

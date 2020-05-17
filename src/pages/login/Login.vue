@@ -51,7 +51,7 @@
 </template>
 
 <script>
-  import LoginTemplate from "../../templates/loginTemplate";
+  import LoginTemplate from "../../templates/LoginTemplate";
 
   export default {
     name: 'Login',
@@ -66,37 +66,36 @@
     },
     methods: {
       login(){
-        console.log(this.$urlAPI+'login')
-        this.$http.post(this.$urlAPI+'login',{
-          email: this.email,
-          password: this.password
-        })
-        .then( response => {
-          console.log(response)
-          if(response.data.status){
-            // login com sucesso
-            this.$store.commit('setUsuario', response.data.user)
-            sessionStorage.setItem('usuario', JSON.stringify(response.data.user))
-            this.$router.push('/')
-          }else if(response.data.status === false && response.data.validate){
-            // erros de validação
-            console.log('erros de validação')
-            let errors = '';
-            for (let erro of Object.values(response.data.errors)){
-              errors = erro + " ";
+          this.$http.post(this.$urlAPI+'login',{
+            email: this.email,
+            password: this.password
+          })
+          .then( response => {
+            console.log(response)
+            if(response.data.status){
+              console.log(response)
+              // login com sucesso
+              this.$store.commit('setUser', response.data.user)
+              sessionStorage.setItem('user', JSON.stringify(response.data.user))
+              this.$router.push('/')
+            }else if(response.data.status === false && response.data.validate){
+              // erros de validação
+              console.log('erros de validação')
+              let errors = '';
+              for (let erro of Object.values(response.data.errors)){
+                errors = erro + " ";
+              }
+              alert(errors)
+            }else{
+              //login não existe
+              console.log('login não existe')
+              alert('Login invalido')
             }
-            alert(errors)
-          }else{
-            //login não existe
-            console.log('login não existe')
-            alert('Login invalido')
-          }
-        } )
-        .catch(e => {
-          console.warn('Error: ', e)
-        })
+          } )
+          .catch(e => {
+            console.warn('Error: ', e)
+          })
       }
-
     },
   }
 </script>
