@@ -1,0 +1,78 @@
+<template>
+  <login-template>
+    <span slot="header">
+      <div class="row" id="header">
+        Login
+      </div>
+    </span>
+  <span slot="principal">
+  <div class="row">
+      <div class="col m8 offset-m2  center-align">
+        <div class="card">
+          <div class="card-content">
+          <div class="row">
+            <br>
+            <form class="col s12 m12">
+              <div class="row">
+                <div class="input-field col s12 m12">
+                  <i class="material-icons prefix">email</i>
+                  <input id="icon_prefix" type="text" class="validate" autocomplete="off">
+                  <label for="icon_prefix">Email</label>
+                </div>
+                <div class="input-field col s12 m12">
+                  <i class="material-icons prefix">vpn_key</i>
+                  <input id="icon_telephone" type="password" class="validate" autocomplete="off">
+                  <label for="icon_telephone">Password</label>
+                </div>
+              </div>
+              <div class="row">
+                <label>
+                  <input type="checkbox" class="filled-in" checked="checked" />
+                  <span>Permanecer Conectado</span>
+                </label>
+              </div>
+              <div class="row">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Entrar
+                  <i class="material-icons right">send</i>
+                </button>
+                <button class="btn waves-effect waves-light orange" type="submit" name="action">Cadastrar-se
+                  <i class="material-icons right">contacts</i>
+                </button>
+              </div>
+            </form>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+  </span>
+
+  </login-template>
+</template>
+
+<script>
+  import LoginTemplate from "../templates/loginTemplate";
+
+  export default {
+    name: 'Login',
+    components: {
+      LoginTemplate,
+    },
+    data () {
+      return {
+
+      }
+    },
+    methods: {
+
+    },
+  }
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+  #header{
+    margin-top: 30px;
+    font-size: 36px;
+  }
+</style>
