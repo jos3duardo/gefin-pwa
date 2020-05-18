@@ -1,21 +1,17 @@
 <template>
   <span>
-      <nav-bar-vue logo="Gefin - Space" url="/" cor="red" >
+      <nav-bar-vue logo="Gefin" url="/" cor="red" >
         <li><a href="/">Home</a></li>
        <li v-if="!user"> <router-link to="/login">Login</router-link></li>
         <li v-if="user"> <router-link to="/profile">{{ user.name}}</router-link></li>
         <li v-if="user" ><a v-on:click="sair()">Sair</a></li>
       </nav-bar-vue>
+      <side-nav-vue />
     <main>
-        <side-nav-vue />
-
        <div class="container">
-        <div class="col s12 m12">
           <slot></slot>
-        </div>
       </div>
-    <footer-vue cor="red" />
-
+<!--    <footer-vue cor="red" />-->
     </main>
   </span>
 </template>

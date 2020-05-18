@@ -1,7 +1,8 @@
 <template>
   <site-template>
+<!--    <div class="container">-->
     <div class="row">
-      <div class="col s12 m4 l4">
+      <div class="col s12 m4 l4 offset-l2 offset-m2">
         <h5>Dados</h5>
         <div class="card">
           <div class="card-image">
@@ -20,7 +21,7 @@
           </div>
         </div>
       </div>
-      <div class="col s12 m8 l8">
+      <div class="col s12 m6 l6">
         <h5>Editar Perfil</h5>
         <div class="card">
           <div class="card-content">
@@ -40,7 +41,7 @@
                 </div>
               <div class="file-field input-field">
                 <div class="btn">
-                  <span>Imagem</span>
+                  <span><i class="material-icons">perm_media</i></span>
                   <input type="file" v-on:change="saveImage">
                 </div>
                 <div class="file-path-wrapper">
@@ -70,7 +71,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col s12 m12 l12">
+      <div class="col s12 m10 l10 offset-l2 offset-m2">
         <h5 class="center-align">Membros da Empresa</h5>
         <div class="card">
           <div class="card-content">
@@ -89,6 +90,7 @@
         </div>
       </div>
     </div>
+<!--    </div>-->
   </site-template>
 </template>
 <script>
