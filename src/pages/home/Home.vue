@@ -71,6 +71,11 @@ import SiteTemplate from "../../templates/SiteTemplate";
       let userAux = this.$store.getters.getUser
       if (userAux){
         this.user = this.$store.getters.getUser
+        this.$http.get(this.$urlAPI+`content/list`,
+          {
+            "headers": {"authorization": "Bearer " +  this.$store.getters.getToken}
+          })
+
       }
     }
   }

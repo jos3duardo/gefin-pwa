@@ -2,8 +2,7 @@
   <site-template>
     <div class="row">
       <div class="col s12 m4 l4">
-        <br>
-        <br>
+        <h5>Dados</h5>
         <div class="card">
           <div class="card-image">
             <img src="../../assets/fundo8.jpg" height="150px">

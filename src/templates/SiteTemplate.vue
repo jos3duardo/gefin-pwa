@@ -7,13 +7,14 @@
         <li v-if="user" ><a v-on:click="sair()">Sair</a></li>
       </nav-bar-vue>
     <main>
+        <side-nav-vue />
+
        <div class="container">
         <div class="col s12 m12">
-          <h5>Site</h5>
           <slot></slot>
         </div>
       </div>
-      <footer-vue cor="orange" />
+    <footer-vue cor="red" />
 
     </main>
   </span>
@@ -21,6 +22,8 @@
 <script>
   import NavBarVue from "../components/layouts/NavBarVue";
   import FooterVue from "../components/layouts/FooterVue";
+  import SideNavVue from "../components/layouts/SideNavVue";
+
   export default {
     name: 'LoginTemplate',
     data(){
@@ -30,7 +33,8 @@
     },
     components: {
       NavBarVue,
-      FooterVue
+      FooterVue,
+      SideNavVue
     },
     created() {
       let userAux = this.$store.getters.getUser
