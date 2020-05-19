@@ -1,16 +1,16 @@
 <template>
   <div>
-  <ul id="slide-out" class="sidenav sidenav-fixed">
+  <ul id="slide-out" class="sidenav">
     <li><div class="user-view">
       <div class="background">
         <img src="https://materializecss.com/images/office.jpg">
       </div>
-      <a href="#user"><img class="circle" :src="user.image"></a>
+      <router-link to="/profile"><img class="circle" :src="user.image"></router-link>
       <a href="#name"><span class="white-text name">{{user.name}}</span></a>
       <a href="#email"><span class="white-text email">{{user.email}}</span></a>
     </div></li>
-    <li><a href="#!"><i class="material-icons">cloud</i>Home</a></li>
-    <li><a href="#!"><i class="material-icons">settings</i> Banco</a></li>
+    <li><router-link to="/"><i class="material-icons">cloud</i>Home</router-link></li>
+    <li><router-link to="/"><i class="material-icons">account_balance</i>Banco</router-link></li>
     <li><div class="divider"></div></li>
   </ul>
 <!--  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>-->
@@ -41,6 +41,6 @@
 </script>
 <style>
   .sidenav {
-    width: 200px !important;
+    width: 210px !important;
   }
 </style>

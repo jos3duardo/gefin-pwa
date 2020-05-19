@@ -6,7 +6,9 @@
         <router-link :to="url || '/'" class="brand-logo">{{ logo || 'Sistema' }}</router-link>
       <!--      <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>-->
       <a href="#" data-target="slide-out" class="top-nav sidenav-trigger full hide-on-large-only right"><i class="material-icons">menu</i></a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+<!--      <a href="#" data-target="slide-out" class="top-nav sidenav-trigger full hide-on-large-only right"><i class="material-icons">menu</i></a>-->
+      <ul id="nav-mobile"  class="right hide-on-med-and-down">
+<!--        <li><a href="#" data-target="slide-out" class=" top-nav full ">Menu</a></li>-->
         <slot></slot>
       </ul>
       </div>
@@ -30,5 +32,9 @@
   }
 </script>
 <style class="scoped">
-
+  /*@media only screen and (max-width: 993px) {*/
+    nav a.sidenav-trigger {
+      display: block !important;
+    }
+  /*}*/
 </style>

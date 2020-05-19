@@ -19,9 +19,7 @@
         </span>
       </card-vue>
   </div>
-  <div class="row">
-    <area-char-vue />
-  </div>
+    <area-char-vue  id="chart-area"/>
 </div>
 
   </site-template>
@@ -63,6 +61,16 @@ import AreaCharVue from "../../components/charts/AreaCharVue";
 </script>
 <style>
   .container {
-    width: 80% !important;
+    width: 90% !important;
+    /*margin-right: 15px !important;*/
+    /*margin-left: 120px !important;*/
+    /*margin-left: 1px !important;*/
+  }
+  @media  (max-width: 375px) {
+    .container {
+      /*width: 90% !important;*/
+      /*margin: 0 20px !important;*/
+      /*margin-left: 1px !important;*/
+    }
   }
 </style>

@@ -7,9 +7,9 @@
         <li v-if="user" ><a v-on:click="sair()">Sair</a></li>
       </nav-bar-vue>
       <side-nav-vue />
-       <div class="container">
+<!--       <div class="container">-->
           <slot></slot>
-      </div>
+<!--      </div>-->
     </main>
 </template>
 <script>
@@ -49,5 +49,7 @@
 </script>
 
 <style>
-
+.container{
+  width: 83% !important;
+}
 </style>
