@@ -10,7 +10,7 @@
       <a href="#email"><span class="white-text email">{{user.email}}</span></a>
     </div></li>
     <li><router-link to="/"><i class="material-icons">cloud</i>Home</router-link></li>
-    <li><router-link to="/"><i class="material-icons">account_balance</i>Banco</router-link></li>
+    <li><router-link to="/account"><i class="material-icons">account_balance</i>Banco</router-link></li>
     <li><div class="divider"></div></li>
   </ul>
 <!--  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>-->
@@ -41,6 +41,6 @@
 </script>
 <style>
   .sidenav {
-    width: 210px !important;
+    width: 300px !important;
   }
 </style>

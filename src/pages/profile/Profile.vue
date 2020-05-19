@@ -1,8 +1,8 @@
 <template>
   <site-template>
-<!--    <div class="container">-->
+    <div class="container">
     <div class="row">
-      <div class="col s12 m4 l4 offset-l2 offset-m2">
+      <div class="col s12 m5 l5">
         <h5>Dados</h5>
         <div class="card">
           <div class="card-image">
@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-      <div class="col s12 m6 l6">
+      <div class="col s12 m7 l7">
         <h5>Editar Perfil</h5>
         <div class="card">
           <div class="card-content">
@@ -71,26 +71,27 @@
       </div>
     </div>
     <div class="row">
-      <div class="col s12 m10 l10 offset-l2 offset-m2">
+      <div class="col s12 m12 l12">
         <h5 class="center-align">Membros da Empresa</h5>
         <div class="card">
           <div class="card-content">
             <table class="no-border">
-
               <tr>
                 <th>nome</th>
                 <th>email</th>
+                <th>cadastro</th>
               </tr>
               <tr v-for="item in members" :key="item.id">
                 <td>{{item.name }}</td>
                 <td>{{item.email }}</td>
+                <td>{{item.created_at }}</td>
               </tr>
             </table>
           </div>
         </div>
       </div>
     </div>
-<!--    </div>-->
+    </div>
   </site-template>
 </template>
 <script>
@@ -148,12 +149,6 @@
   }
 </script>
 <style>
-  .bg-login{
-    background-image: url("../../assets/fundo1-min.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-  }
   .img-author-div{
     width: 70px;
     margin-top: -35px;
