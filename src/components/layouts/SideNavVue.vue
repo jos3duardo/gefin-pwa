@@ -9,11 +9,9 @@
       <a href="#name"><span class="white-text name">{{user.name}}</span></a>
       <a href="#email"><span class="white-text email">{{user.email}}</span></a>
     </div></li>
-    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-    <li><a href="#!"><i class="material-icons">settings</i> Second Link</a></li>
+    <li><a href="#!"><i class="material-icons">cloud</i>Home</a></li>
+    <li><a href="#!"><i class="material-icons">settings</i> Banco</a></li>
     <li><div class="divider"></div></li>
-    <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
   </ul>
 <!--  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>-->
   </div>
@@ -43,6 +41,6 @@
 </script>
 <style>
   .sidenav {
-    width: 250px !important;
+    width: 200px !important;
   }
 </style>

@@ -19,6 +19,9 @@
         </span>
       </card-vue>
   </div>
+  <div class="row">
+    <area-char-vue />
+  </div>
 </div>
 
   </site-template>
@@ -27,13 +30,14 @@
 import SiteTemplate from "../../templates/SiteTemplate";
 import Chart from "../../components/charts/Chart";
 import CardVue from "../../components/layouts/CardVue";
-
+import AreaCharVue from "../../components/charts/AreaCharVue";
   export default {
     name: 'Home',
     components:{
       SiteTemplate,
       CardVue,
-      Chart
+      Chart,
+      AreaCharVue
     },
     data(){
       return {
