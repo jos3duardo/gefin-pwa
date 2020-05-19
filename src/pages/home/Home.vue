@@ -1,38 +1,64 @@
 <template>
   <site-template>
-    <div class="container">
-    <div class="row">
-      <div class="col m12">
 
-      </div>
-    </div>
-    </div>
+<div class="container">
+  <div class="row">
+      <card-vue cor=" green darken-1" tamanho=" s12 m4" title="Banco">
+        <span slot="content">
+          <h5>300,00 R$</h5>
+        </span>
+      </card-vue>
+      <card-vue cor=" red darken-1" tamanho=" s12 m4" title="Despesas">
+        <span slot="content">
+          <h5>5.000,00 R$</h5>
+        </span>
+      </card-vue>
+      <card-vue cor=" blue darken-1" tamanho=" s12 m4" title="Receitas">
+        <span slot="content">
+          <h5>6.000,00 R$</h5>
+        </span>
+      </card-vue>
+  </div>
+</div>
+
   </site-template>
 </template>
 <script>
 import SiteTemplate from "../../templates/SiteTemplate";
+import Chart from "../../components/charts/Chart";
+import CardVue from "../../components/layouts/CardVue";
+
   export default {
     name: 'Home',
+    components:{
+      SiteTemplate,
+      CardVue,
+      Chart
+    },
     data(){
       return {
         user: {image:'', name:''},
+
       }
     },
-    components:{
-      SiteTemplate
-    },
+
     created() {
       let userAux = this.$store.getters.getUser
       if (userAux){
         this.user = this.$store.getters.getUser
-        // this.$http.get(this.$urlAPI+`content/list`,
-        //   {
-        //     "headers": {"authorization": "Bearer " +  this.$store.getters.getToken}
-        //   })
+        this.setup()
+
+      }
+    },
+    methods: {
+      setup(){
 
       }
     }
   }
 </script>
 <style>
+  .container {
+    width: 80% !important;
+  }
 </style>

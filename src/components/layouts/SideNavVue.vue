@@ -42,5 +42,7 @@
   }
 </script>
 <style>
-
+  .sidenav {
+    width: 250px !important;
+  }
 </style>

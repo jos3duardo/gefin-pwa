@@ -1,19 +1,16 @@
 <template>
-  <span>
+    <main>
       <nav-bar-vue logo="Gefin" url="/" cor="red" >
         <li><a href="/">Home</a></li>
-       <li v-if="!user"> <router-link to="/login">Login</router-link></li>
+        <li v-if="!user"> <router-link to="/login">Login</router-link></li>
         <li v-if="user"> <router-link to="/profile">{{ user.name}}</router-link></li>
         <li v-if="user" ><a v-on:click="sair()">Sair</a></li>
       </nav-bar-vue>
       <side-nav-vue />
-    <main>
        <div class="container">
           <slot></slot>
       </div>
-<!--    <footer-vue cor="red" />-->
     </main>
-  </span>
 </template>
 <script>
   import NavBarVue from "../components/layouts/NavBarVue";

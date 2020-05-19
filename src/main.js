@@ -5,6 +5,12 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import Vuex from 'vuex'
+import Highcharts from 'highcharts'
+import HighchartsVue from 'highcharts-vue'
+
+Vue.use(HighchartsVue, {
+  highcharts: Highcharts
+})
 Vue.use(Vuex)
 
 axios.defaults.withCredentials = true;
