@@ -38,8 +38,8 @@
                 </div>
 
                 <div class="col s12 m6 l6">
-                  <button class="btn waves-effect waves-light orange z-depth-5 btn-large" type="submit" name="action">Cadastrar-se
-                  </button>
+                  <a href="#modal-login" class="waves-effect waves-light orange z-depth-5 btn-large modal-trigger" >Cadastrar-se
+                  </a>
                 </div>
               </div>
             </div>
@@ -48,6 +48,14 @@
           </div>
         </div>
       </div>
+
+    <modal-vue name="modal-login">
+      <span slot="titulo">Criação de novas contas</span>
+      <span slot="conteudo">A criação de novas contas esta desabilitada por padrão, para acessar o sistema favor entrar em contato com o
+      administrador do sistema através do email <a href="mailto:jos3duardolopes@gmail.com">jos3duardolopes@gmail.com</a> ou telefone <a
+          href="tel:67999590133"> 67 9 9959-0133</a>
+      </span>
+    </modal-vue>
   </span>
 
   </login-template>
@@ -55,11 +63,12 @@
 
 <script>
   import LoginTemplate from "../../templates/LoginTemplate";
-
+  import ModalVue from "../../components/layouts/ModalVue";
   export default {
     name: 'Login',
     components: {
       LoginTemplate,
+      ModalVue
     },
     data () {
       return {
