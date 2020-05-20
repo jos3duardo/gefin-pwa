@@ -40,6 +40,20 @@
                     <label for="email">Email</label>
                   </div>
                 </div>
+
+              <div class="row">
+                <div class="input-field col s12 m6 l6">
+                  <i class="material-icons prefix">lock</i>
+                  <input id="password" type="password" name="password" class="validate" v-model="password">
+                  <label for="password">Nova senha</label>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                  <i class="material-icons prefix">lock</i>
+
+                  <input id="repassword" type="password" name="repassword" class="validate" v-model="password_confirmation">
+                  <label for="repassword">Confirme a senha</label>
+                </div>
+              </div>
               <div class="file-field input-field">
                 <div class="btn">
                   <span><i class="material-icons">perm_media</i></span>
@@ -49,20 +63,7 @@
                   <input class="file-path validate" type="text">
                 </div>
               </div>
-              <div class="row">
-                <div class="input-field col s12 m12 l12">
-                  <i class="material-icons prefix">lock</i>
-                  <input id="password" type="password" name="password" class="validate" v-model="password">
-                  <label for="password">Nova senha</label>
-                </div>
-                <div class="input-field col s12 m12 l12">
-                  <i class="material-icons prefix">lock</i>
-
-                  <input id="repassword" type="password" name="repassword" class="validate" v-model="password_confirmation">
-                  <label for="repassword">Confirme a senha</label>
-                </div>
-              </div>
-                <div class="input-field center">
+                <div class="input-field left  ">
                   <button class="btn grey waves-effect"  v-on:click="profile()">Salvar</button>
                 </div>
 <!--              </form>-->

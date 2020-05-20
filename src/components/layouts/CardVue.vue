@@ -1,7 +1,7 @@
 <template>
   <div :class="'col ' + tamanho || 's12 m6'">
     <div :class="'card '+ cor">
-      <div class="card-content white-text ">
+      <div class="card-content white-text z-depth-5">
         <div class="valign-wrapper">
           <i class="material-icons">{{icone}}</i>
           <span class="card-title ">
@@ -14,6 +14,7 @@
   </div>
 </template>
 <script>
+  import tilt from 'tilt.js'
   export default {
     name: 'Card',
     props:['cor','tamanho','title','icone'],

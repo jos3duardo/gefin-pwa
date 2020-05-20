@@ -1,18 +1,22 @@
 <template>
-  <div>
-    <ul id="navbar-gefin" class="side-nav">
+  <div class="">
+
+    <ul id="slide-out" class="sidenav">
       <li><div class="user-view">
         <div class="background">
           <img src="https://materializecss.com/images/office.jpg">
         </div>
-        <router-link to="/profile"><img class="circle" :src="user.image"></router-link>
-        <a href="#name"><span class="white-text name">{{user.name}}</span></a>
-        <a href="#email"><span class="white-text email">{{user.email}}</span></a>
+        <a href="/profile"><img class="circle" :src="user.image">
+        <span class="white-text name">{{user.name}}</span>
+        <span class="white-text email">{{user.email}}</span>
+        </a>
       </div></li>
-      <li><router-link to="/"><i class="material-icons">cloud</i>Home</router-link></li>
-      <li><router-link to="/account"><i class="material-icons">account_balance</i>Banco</router-link></li>
+
+      <li><a href="/"><i class="material-icons">dashboard</i>Resumo</a></li>
+      <li><a href="/account"><i class="material-icons">account_balance_wallet</i> Contas</a></li>
+      <li><a href="/profile"><i class="material-icons">perm_identity</i> Perfils</a></li>
       <li><div class="divider"></div></li>
-      <li class="show-on-small"><a v-on:click="sair()">Sair</a></li>
+      <li v-if="user" ><a v-on:click="sair()"><i class="material-icons">keyboard_return</i> Sair</a></li>
     </ul>
   </div>
 </template>
@@ -41,5 +45,12 @@
   }
 </script>
 <style>
-
+  sidenav li>a>i, .sidenav li>a>[class^="mdi-"], .sidenav li>a li>a>[class*="mdi-"], .sidenav li>a>i.material-icons {
+    float: left;
+    height: 48px;
+    line-height: 48px;
+    margin: 0 32px 0 0;
+    width: 24px;
+    color: black;
+  }
 </style>

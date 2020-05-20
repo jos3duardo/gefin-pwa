@@ -1,14 +1,14 @@
 <template>
   <login-template>
     <span slot="header">
-      <div class="row" id="header">
-        Login
+      <div class="row center-align" id="header">
+<!--        Login-->
       </div>
     </span>
   <span slot="principal">
   <div class="row">
       <div class="col m8 offset-m2  center-align">
-        <div class="card">
+        <div class="card z-depth-5">
           <div class="card-content">
           <div class="row">
             <br>
@@ -32,17 +32,13 @@
 <!--                </label>-->
 <!--              </div>-->
               <div class="row">
-                <div class="col s12">
-                  <button class="btn waves-effect waves-light  btn-large" v-on:click="login()">Entrar
-                    <i class="material-icons right">send</i>
+                <div class="col s12 m6 l6">
+                  <button class="btn waves-effect waves-light btn-large z-depth-5" v-on:click="login()">Entrar
                   </button>
                 </div>
-              </div>
-              <div class="row">
 
-                <div class="col s12">
-                  <button class="btn waves-effect waves-light orange btn-large" type="submit" name="action">Cadastrar-se
-                    <i class="material-icons right">contacts</i>
+                <div class="col s12 m6 l6">
+                  <button class="btn waves-effect waves-light orange z-depth-5 btn-large" type="submit" name="action">Cadastrar-se
                   </button>
                 </div>
               </div>

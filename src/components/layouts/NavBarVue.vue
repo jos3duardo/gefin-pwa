@@ -1,38 +1,36 @@
 <template>
-  <div class="nav-wrapper">
-    <nav :class="cor || 'blue '">
-      <ul id="dropdown1" class="dropdown-content">
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/account">Banco</router-link></li>
-        <li class="divider"></li>
-        <li><router-link to="/profile">Perfil</router-link></li>
-        <li v-if="user" ><a v-on:click="sair()">Sair</a></li>
+  <div class="nav-wrapper ">
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a href="/">Home</a></li>
+      <li><a href="/account">Banco</a></li>
+      <li class="divider"></li>
+      <li><a href="/profile">Perfil</a></li>
+      <li v-if="user" ><a v-on:click="sair()">Sair</a></li>
+    </ul>
 
-      </ul>
+
+    <nav :class="'z-depth-5 '+cor || 'blue '">
+
       <router-link :to="url || '/'" class="brand-logo center">{{ logo || 'Sistema' }}</router-link>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <slot></slot>
-          <li v-if="user" ><router-link class="dropdown-button" to="#!" data-activates="dropdown1">{{user.name}}<i class="material-icons right">arrow_drop_down</i></router-link></li>
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">{{user.name}}<i class="material-icons right">arrow_drop_down</i></a></li>
+<!--          <li v-if="user" ><a class="dropdown-trigger btn" href="#!" data-target='dropdown1'>{{user.name}}<i class="material-icons right">arrow_drop_down</i></a></li>-->
         </ul>
-      <router-link to="#" v-if="user" style="display:block;" data-activates="navbar-gefin" class="button-collapse"><i class="material-icons">menu</i></router-link>
+      <a href="#" v-if="user" style="display:block;" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </nav>
     <side-nav-vue />
   </div>
 </template>
 <script>
-  $( document ).ready(function(){
-    $(".button-collapse").sideNav(
-      {
-        menuWidth: 300, // Default is 300
-        edge: 'left', // Choose the horizontal origin
-        closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-        draggable: true, // Choose whether you can drag to open on touch screens,
-        onOpen: function(el) { /* Do Stuff */ }, // A function to be called when sideNav is opened
-        onClose: function(el) { /* Do Stuff */ }, // A function to be called when sideNav is closed
-    }
-    );
-  })
-import SideNavVue from "./SideNavVue";
+  import SideNavVue from "./SideNavVue";
+
+  document.addEventListener('DOMContentLoaded', function() {
+    $(".dropdown-trigger").dropdown();
+
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
+  });
   export default {
     name: 'NavBar',
     props: ['cor','logo','url'],

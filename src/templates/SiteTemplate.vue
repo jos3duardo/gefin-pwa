@@ -1,6 +1,6 @@
 <template>
     <main>
-      <nav-bar-vue logo="Gefin" url="/" cor="red" >
+      <nav-bar-vue logo="Gefin" url="/" cor="black" >
         <li><a href="/">Home</a></li>
         <li v-if="!user"> <router-link to="/login">Login</router-link></li>
       </nav-bar-vue>
