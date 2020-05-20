@@ -6,20 +6,13 @@
         <li v-if="user"> <router-link to="/profile">{{ user.name}}</router-link></li>
         <li v-if="user" ><a v-on:click="sair()">Sair</a></li>
       </nav-bar-vue>
-      <side-nav-vue />
-<!--       <div class="container">-->
-          <slot></slot>
-<!--      </div>-->
+      <slot></slot>
     </main>
 </template>
 <script>
 
-
-
   import NavBarVue from "../components/layouts/NavBarVue";
   import FooterVue from "../components/layouts/FooterVue";
-  import SideNavVue from "../components/layouts/SideNavVue";
-
   export default {
     name: 'LoginTemplate',
     data(){
@@ -31,7 +24,6 @@
     components: {
       NavBarVue,
       FooterVue,
-      SideNavVue
     },
     created() {
       let userAux = this.$store.getters.getUser
@@ -50,14 +42,7 @@
       }
     }
   }
-
-  $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
 </script>
 
 <style>
-.container{
-  width: 83% !important;
-}
 </style>

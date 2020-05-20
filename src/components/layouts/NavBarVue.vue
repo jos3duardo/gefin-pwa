@@ -1,31 +1,34 @@
 <template>
-  <div class="navbar-fixed">
-  <nav :class="cor || 'blue '">
-
-    <div class="nav-wrapper  center-align">
-        <router-link :to="url || '/'" class="brand-logo">{{ logo || 'Sistema' }}</router-link>
-      <!--      <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>-->
-
-<!--      <a v-if="user" href="#" data-target="slide-out" class="top-nav sidenav-trigger full hide-on-large-only left"><i class="material-icons">menu</i></a>-->
-      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a
-
-
-
-<!--      <a href="#" data-target="slide-out" class="top-nav sidenav-trigger full hide-on-large-only right"><i class="material-icons">menu</i></a>-->
-      <ul id="nav-mobile"  class="right hide-on-med-and-down">
-<!--        <li><a href="#" data-target="slide-out" class=" top-nav full ">Menu</a></li>-->
-        <slot></slot>
+  <div class="nav-wrapper">
+    <nav :class="cor || 'blue '">
+      <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">one</a></li>
+        <li><a href="/account">Banco</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">three</a></li>
       </ul>
-      </div>
-  </nav>
-</div>
+      <router-link :to="url || '/'" class="brand-logo center">{{ logo || 'Sistema' }}</router-link>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <slot></slot>
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+      <a href="#" style="display:block;" data-activates="navbar-gefin" class="button-collapse"><i class="material-icons">menu</i></a>
+    </nav>
+
+    <side-nav-vue />
+  </div>
 </template>
 <script>
-
-
+  $( document ).ready(function(){
+    $(".button-collapse").sideNav();
+  })
+import SideNavVue from "./SideNavVue";
   export default {
     name: 'NavBar',
     props: ['cor','logo','url'],
+    components:{
+      SideNavVue
+    },
     data(){
       return{
         user: false,
@@ -43,9 +46,13 @@
   }
 </script>
 <style class="scoped">
-  /*@media only screen and (max-width: 993px) {*/
-    nav a.sidenav-trigger {
-      display: block !important;
-    }
+  /*header, main, footer {*/
+  /*  padding-left: 300px;*/
+  /*}*/
+
+  /*@media only screen and (max-width : 992px) {*/
+  /*  header, main, footer {*/
+  /*    padding-left: 0;*/
+  /*  }*/
   /*}*/
 </style>
