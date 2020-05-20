@@ -2,19 +2,20 @@
   <div class="nav-wrapper">
     <nav :class="cor || 'blue '">
       <ul id="dropdown1" class="dropdown-content">
-        <li><a href="#!">one</a></li>
-        <li><a href="/account">Banco</a></li>
+        <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/account">Banco</router-link></li>
         <li class="divider"></li>
-        <li><a href="#!">three</a></li>
+        <li><router-link to="/profile">Perfil</router-link></li>
+        <li v-if="user" ><a v-on:click="sair()">Sair</a></li>
+
       </ul>
       <router-link :to="url || '/'" class="brand-logo center">{{ logo || 'Sistema' }}</router-link>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <slot></slot>
-          <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li v-if="user" ><router-link class="dropdown-button" to="#!" data-activates="dropdown1">{{user.name}}<i class="material-icons right">arrow_drop_down</i></router-link></li>
         </ul>
-      <a href="#" style="display:block;" data-activates="navbar-gefin" class="button-collapse"><i class="material-icons">menu</i></a>
+      <router-link to="#" v-if="user" style="display:block;" data-activates="navbar-gefin" class="button-collapse"><i class="material-icons">menu</i></router-link>
     </nav>
-
     <side-nav-vue />
   </div>
 </template>

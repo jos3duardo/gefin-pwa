@@ -3,8 +3,6 @@
       <nav-bar-vue logo="Gefin" url="/" cor="red" >
         <li><a href="/">Home</a></li>
         <li v-if="!user"> <router-link to="/login">Login</router-link></li>
-        <li v-if="user"> <router-link to="/profile">{{ user.name}}</router-link></li>
-        <li v-if="user" ><a v-on:click="sair()">Sair</a></li>
       </nav-bar-vue>
       <slot></slot>
     </main>
