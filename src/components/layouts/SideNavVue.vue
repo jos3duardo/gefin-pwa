@@ -12,6 +12,7 @@
       <li><router-link to="/"><i class="material-icons">cloud</i>Home</router-link></li>
       <li><router-link to="/account"><i class="material-icons">account_balance</i>Banco</router-link></li>
       <li><div class="divider"></div></li>
+      <li class="show-on-small"><a v-on:click="sair()">Sair</a></li>
     </ul>
   </div>
 </template>
@@ -29,6 +30,14 @@
         this.user =  this.$store.getters.getUser
       }
     },
+    methods: {
+      sair(){
+        this.$store.commit('setUser',null);
+        sessionStorage.clear()
+        this.user = false
+        this.$router.push('/login')
+      }
+    }
   }
 </script>
 <style>

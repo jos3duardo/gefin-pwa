@@ -32,12 +32,19 @@
 <!--                </label>-->
 <!--              </div>-->
               <div class="row">
-                <button class="btn waves-effect waves-light" v-on:click="login()">Entrar
-                  <i class="material-icons right">send</i>
-                </button>
-                <button class="btn waves-effect waves-light orange" type="submit" name="action">Cadastrar-se
-                  <i class="material-icons right">contacts</i>
-                </button>
+                <div class="col s12">
+                  <button class="btn waves-effect waves-light  btn-large" v-on:click="login()">Entrar
+                    <i class="material-icons right">send</i>
+                  </button>
+                </div>
+              </div>
+              <div class="row">
+
+                <div class="col s12">
+                  <button class="btn waves-effect waves-light orange btn-large" type="submit" name="action">Cadastrar-se
+                    <i class="material-icons right">contacts</i>
+                  </button>
+                </div>
               </div>
             </div>
             </div>

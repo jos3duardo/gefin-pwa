@@ -2,7 +2,7 @@
   <main>
       <span>
         <nav-bar-vue logo="Gefin - Space" url="/" cor="red" >
-          <li v-if="user"><a href="/">Home</a></li>
+          <li v-if="user"><a href="/" class="btb">Home</a></li>
           <li v-if="!user"> <router-link to="/login">Login</router-link></li>
           <li v-if="user"> <router-link to="/profile">{{user.name}}</router-link></li>
         </nav-bar-vue>
@@ -11,7 +11,7 @@
       <slot name="header" />
       <slot name="principal" />
     </div>
-    <footer-vue cor="orange" />
+<!--    <footer-vue cor="orange" />-->
 
   </main>
 </template>
