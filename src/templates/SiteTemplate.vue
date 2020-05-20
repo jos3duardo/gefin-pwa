@@ -13,6 +13,9 @@
     </main>
 </template>
 <script>
+
+
+
   import NavBarVue from "../components/layouts/NavBarVue";
   import FooterVue from "../components/layouts/FooterVue";
   import SideNavVue from "../components/layouts/SideNavVue";
@@ -21,7 +24,8 @@
     name: 'LoginTemplate',
     data(){
       return {
-        user: false
+        user: false,
+
       }
     },
     components: {
@@ -46,6 +50,10 @@
       }
     }
   }
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
 </script>
 
 <style>

@@ -1,6 +1,6 @@
 <template>
   <site-template>
-    <card-vue title="Conta" tamanho="3" cor="green"></card-vue>
+<!--    <card-vue title="Conta" tamanho="3" cor="green"></card-vue>-->
 
   </site-template>
 </template>

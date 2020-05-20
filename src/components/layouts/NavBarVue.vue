@@ -5,7 +5,12 @@
     <div class="nav-wrapper  center-align">
         <router-link :to="url || '/'" class="brand-logo">{{ logo || 'Sistema' }}</router-link>
       <!--      <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>-->
-      <a v-if="user" href="#" data-target="slide-out" class="top-nav sidenav-trigger full hide-on-large-only left"><i class="material-icons">menu</i></a>
+
+<!--      <a v-if="user" href="#" data-target="slide-out" class="top-nav sidenav-trigger full hide-on-large-only left"><i class="material-icons">menu</i></a>-->
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a
+
+
+
 <!--      <a href="#" data-target="slide-out" class="top-nav sidenav-trigger full hide-on-large-only right"><i class="material-icons">menu</i></a>-->
       <ul id="nav-mobile"  class="right hide-on-med-and-down">
 <!--        <li><a href="#" data-target="slide-out" class=" top-nav full ">Menu</a></li>-->
@@ -16,10 +21,7 @@
 </div>
 </template>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems);
-  });
+
 
   export default {
     name: 'NavBar',
