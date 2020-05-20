@@ -53,6 +53,14 @@ import SideNavVue from "./SideNavVue";
         this.email = this.user.email
         this.company = this.user.company[0]
       }
+    },
+    methods: {
+      sair(){
+        this.$store.commit('setUser',null);
+        sessionStorage.clear()
+        this.user = false
+        this.$router.push('/login')
+      }
     }
   }
 </script>

@@ -129,10 +129,8 @@
         if (response.status){
           this.members = response.data.members
         }
-        console.log(response)
       })
       .catch( error => console.log(error))
-
     },
     methods: {
       saveImage(e){
@@ -160,7 +158,7 @@
               this.user = response.data.user
               this.$store.commit('setUser', response.data.user)
               sessionStorage.setItem('user', JSON.stringify(this.user));
-              this.members = response.data.members
+              // this.members = response.data.members
               alert('Perfil atualizado')
             }else if(response.data.status === false && response.data.validate){
               // erros de validação
