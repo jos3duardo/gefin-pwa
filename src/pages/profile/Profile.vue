@@ -63,7 +63,7 @@
                 </div>
               </div>
                 <div class="input-field center">
-                  <button class="btn grey waves-effect" type="submit">Salvar</button>
+                  <button class="btn grey waves-effect"  v-on:click="profile()">Salvar</button>
                 </div>
 <!--              </form>-->
             </div>
@@ -110,7 +110,7 @@
         password: '',
         password_confirmation: '',
         image: '',
-        company: '',
+        company: false,
         members: []
       }
     },
@@ -122,7 +122,7 @@
         this.email = this.user.email
         this.company = this.user.company[0]
       }
-      console.log(this.$store.getters.getToken)
+      console.log(this.user)
       this.$http.post(this.$urlAPI+'company/members/'+this.user.id,{},
         {"headers": {"authorization": "Bearer " +  this.$store.getters.getToken}})
       .then( response => {
@@ -136,7 +136,7 @@
     },
     methods: {
       saveImage(e){
-        let file = e.target.file || e.dataTransfer.files
+        let file = e.target.files || e.dataTransfer.files
         if (!file.length){
           return;
         }
@@ -145,6 +145,37 @@
           this.image = e.target.result
         }
         reader.readAsDataURL(file[0])
+      },
+      profile(){
+        this.$http.post(this.$urlAPI+`user/profile`, {
+          name: this.name,
+          email: this.email,
+          password:this.password,
+          password_confirmation: this.password_confirmation,
+          image: this.image
+        },{"headers": {"authorization": "Bearer " +  this.$store.getters.getToken}})
+          .then(response => {
+            console.log(response)
+            if(response.data.status){
+              this.user = response.data.user
+              this.$store.commit('setUser', response.data.user)
+              sessionStorage.setItem('user', JSON.stringify(this.user));
+              this.members = response.data.members
+              alert('Perfil atualizado')
+            }else if(response.data.status === false && response.data.validate){
+              // erros de validação
+              // console.log('erros de validação')
+              let errors = '';
+              for (let error of Object.values(response.data.errors)){
+                errors = error + " ";
+              }
+              alert(errors)
+            }
+          })
+          .catch(e => {
+            console.log(e)
+            alert("Erro! Tente novamente mais tarde")
+          })
       }
     }
   }

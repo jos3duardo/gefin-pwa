@@ -42,6 +42,7 @@ import SideNavVue from "./SideNavVue";
     data(){
       return{
         user: false,
+        company:''
       }
     },
     created() {
