@@ -34,24 +34,6 @@
             </select>
             <label for="categoria">Categoria</label>
           </div>
-<!--          <div class="input-field col s12 m3 l3">-->
-<!--            <label>-->
-<!--              <input type="checkbox" name="default"/>-->
-<!--              <span>Padrão Desconto</span>-->
-<!--            </label>-->
-<!--          </div>-->
-<!--          <div class="input-field col s12 m3 l3">-->
-<!--            <label>-->
-<!--              <input type="checkbox" name="show"/>-->
-<!--              <span>Exibir na tela de resumo</span>-->
-<!--            </label>-->
-<!--          </div>-->
-<!--          <div class="input-field col s12 m3 l3">-->
-<!--            <label>-->
-<!--              <input type="checkbox" name="sum"/>-->
-<!--              <span>Não somar aos Totais</span>-->
-<!--            </label>-->
-<!--          </div>-->
           <div class="col s12 m2 l2 right">
             <button class="btn waves-effect waves-light" type="submit" >Salvar
               <i class="material-icons right">send</i>
@@ -61,7 +43,6 @@
       </form>
     </div>
   </div>
-
 </template>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -74,7 +55,7 @@
     props: ['identifier'],
     data () {
       return {
-        banksListUser: {"Apple":'',"Microsofit":''}
+        listBanks: ''
       }
     },
     created() {
@@ -87,16 +68,22 @@
           "headers": {"authorization": "Bearer " + this.$store.getters.getToken}
         })
         .then(function (response) {
-          console.log(response.data)
+          console.log(response.data.banks)
+          let data = []
+          response.data.banks.map((obj,key) => {
+            data.push(obj)
+            // data[key]['title'] = obj
+            // console.log(obj.title, key)
 
-          if (response.data.status){
+          })
+          console.log(data)
 
-          }
-
+          // if (response.data.status){
+          //
+          // }
         })
         .catch(err => console.log('Erro ', err))
       }
     }
   }
-
 </script>
