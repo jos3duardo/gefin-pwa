@@ -4,9 +4,9 @@
     <ul id="slide-out" class="sidenav">
       <li><div class="user-view">
         <div class="background">
-          <img src="https://materializecss.com/images/office.jpg">
+          <img src="https://materializecss.com/images/office.jpg" alt="image background">
         </div>
-        <a href="/profile"><img class="circle" :src="user.image">
+        <a href="/profile"><img class="circle" :src="user.image" alt="user image">
         <span class="white-text name">{{user.name}}</span>
         <span class="white-text email">{{user.email}}</span>
         </a>
