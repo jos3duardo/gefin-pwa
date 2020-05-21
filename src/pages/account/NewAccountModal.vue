@@ -83,18 +83,29 @@
       }
     },
     created() {
-      this.$http.get(this.$urlAPI+'banks/list',{},{
-        "headers": { "authorization": "Bearer " + this.$store.getters.getToken}
-      })
-      .then(function (response) {
-        console.log(response)
-        // var autocompletebank = M.Autocomplete.init(elemsAutoComplete,{
-        //   data: banks,
-        //   limit: 5
-        // });
-        // autocompletebank.updateData(banks);
-      })
-      .catch(err => console.log('Erro ', err))
+      this.banksList()
+    },
+    methods: {
+      banksList(){
+        console.log(this.$store.getters.getToken)
+        this.$http.get(this.$urlAPI + 'banks/list',{
+          "headers": {"authorization": "Bearer " + this.$store.getters.getToken}
+        })
+        .then(function (response) {
+          console.log(response)
+          if (response.data.status){
+            var autocompletebank = M.Autocomplete.init(elemsAutoComplete,{
+              data: banks,
+              limit: 5
+            });
+            autocompletebank.updateData(banks);
+          }else {
+
+          }
+
+        })
+        .catch(err => console.log('Erro ', err))
+      }
     }
   }
 </script>

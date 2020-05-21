@@ -37,9 +37,8 @@
                   </button>
                 </div>
 
-                <div class="col s12 m6 l6">
-                  <a href="#modal-login" class="waves-effect waves-light orange z-depth-5 btn-large modal-trigger" >Cadastrar-se
-                  </a>
+                <div class="col s12 m6 l6" id="register">
+                  <a href="#modal-login" class="waves-effect waves-light orange z-depth-5 btn-large modal-trigger" >Cadastrar-se</a>
                 </div>
               </div>
             </div>
@@ -118,4 +117,10 @@
     margin-top: 30px;
     font-size: 36px;
   }
+  @media only screen and (max-width: 600px){
+    #register{
+      margin-top: 25px;
+    }
+  }
+
 </style>
