@@ -15,7 +15,7 @@
             type: 'areaspline'
           },
           title: {
-            text: 'Grafico comparativo entre Receitas e Despesas 2020'
+            text: 'Receitas e Despesas 2020'
           },
           // subtitle: {
           //   text: 'Sources: <a href="https://thebulletin.org/2006/july/global-nuclear-stockpiles-1945-2006">' +

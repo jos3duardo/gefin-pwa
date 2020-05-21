@@ -48,28 +48,36 @@
       </card-vue>
     </div>
     <floating-action-button-vue cor="black" icone="menu">
-      <li><router-link to="#" class=" black"><i class="material-icons">insert_chart</i></router-link></li>
+      <li><a href="#new-account" class=" black modal-trigger"><i class="material-icons">filter_1</i></a></li>
       <li><router-link to="#" class=" black"><i class="material-icons">format_quote</i></router-link></li>
       <li><router-link to="#" class=" black"><i class="material-icons">publish</i></router-link></li>
       <li><router-link to="#" class=" black"><i class="material-icons">attach_file</i></router-link></li>
     </floating-action-button-vue>
+
+    <new-account-modal identifier="new-account" />
   </site-template>
 </template>
 <script>
+
 import SiteTemplate from "../../templates/SiteTemplate";
 import CardVue from "../../components/layouts/CardVue";
 import FloatingActionButtonVue from "../../components/layouts/FloatingActionButtonVue";
-  export default {
+import ModalVue from "../../components/layouts/ModalVue";
+import NewAccountModal from "./NewAccountModal";
+
+export default {
     name: 'Account',
     props:[''],
     components:{
       SiteTemplate,
       CardVue,
-      FloatingActionButtonVue
+      FloatingActionButtonVue,
+      ModalVue,
+      NewAccountModal
     },
     data(){
       return{
-
+        banks: []
       }
     }
   }
