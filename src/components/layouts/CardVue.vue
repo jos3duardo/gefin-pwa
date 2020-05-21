@@ -14,7 +14,6 @@
   </div>
 </template>
 <script>
-  import tilt from 'tilt.js'
   export default {
     name: 'Card',
     props:['cor','tamanho','title','icone'],
