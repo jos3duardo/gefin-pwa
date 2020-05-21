@@ -24,7 +24,8 @@
   import SideNavVue from "./SideNavVue";
 
   document.addEventListener('DOMContentLoaded', function() {
-    $(".dropdown-trigger").dropdown();
+    var elem = document.querySelectorAll('.dropdown-trigger');
+    var instance = M.Dropdown.init(elem);
 
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
