@@ -111,7 +111,7 @@
         password: '',
         password_confirmation: '',
         image: '',
-        company: false,
+        company: '',
         members: []
       }
     },
@@ -123,7 +123,6 @@
         this.email = this.user.email
         this.company = this.user.company[0]
       }
-      console.log(this.user)
       this.$http.post(this.$urlAPI+'company/members/'+this.user.id,{},
         {"headers": {"authorization": "Bearer " +  this.$store.getters.getToken}})
       .then( response => {

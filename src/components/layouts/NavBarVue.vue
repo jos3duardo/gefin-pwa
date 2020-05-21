@@ -9,8 +9,8 @@
     </ul>
 
 
-    <nav :class="'z-depth-5 '+cor || 'blue '">
-      <router-link :to="url || '/'" class="brand-logo center">{{ logo || 'Sistema' }}</router-link>
+    <nav :class="'z-depth-5 ' + cor || 'blue '">
+      <a href="/" class="brand-logo center">{{ logo || 'Sistema' }}</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <slot></slot>
           <li  v-if="user"><a class="dropdown-trigger" href="#!" data-target="dropdown1">{{user.name}}<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -32,14 +32,14 @@
   });
   export default {
     name: 'NavBar',
-    props: ['cor','logo','url'],
+    props: ['cor','logo'],
     components:{
       SideNavVue
     },
     data(){
       return{
         user: false,
-        company:''
+
       }
     },
     created() {
@@ -48,7 +48,7 @@
         this.user = this.$store.getters.getUser
         this.name = this.user.name
         this.email = this.user.email
-        this.company = this.user.company[0]
+
       }
     },
     methods: {
