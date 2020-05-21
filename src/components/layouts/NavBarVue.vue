@@ -10,14 +10,12 @@
 
 
     <nav :class="'z-depth-5 '+cor || 'blue '">
-
       <router-link :to="url || '/'" class="brand-logo center">{{ logo || 'Sistema' }}</router-link>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <slot></slot>
-          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">{{user.name}}<i class="material-icons right">arrow_drop_down</i></a></li>
-<!--          <li v-if="user" ><a class="dropdown-trigger btn" href="#!" data-target='dropdown1'>{{user.name}}<i class="material-icons right">arrow_drop_down</i></a></li>-->
+          <li  v-if="user"><a class="dropdown-trigger" href="#!" data-target="dropdown1">{{user.name}}<i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
-      <a href="#" v-if="user" style="display:block;" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <a href="#" v-if="user" style="display:block;" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </nav>
     <side-nav-vue />
   </div>

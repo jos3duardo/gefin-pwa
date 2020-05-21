@@ -1,7 +1,7 @@
 <template>
-  <div class="fixed-action-btn toolbar">
-    <a :class="'btn-floating ' + cor || ' black '">
-      <i class="material-icons">{{ icone || 'menu'}}</i>
+  <div class="fixed-action-btn toolbar  ">
+    <a :class="'btn-floating btn-large waves-effect waves-light ' + cor || ' black '">
+      <i class=" material-icons">{{ icone || 'menu'}}</i>
     </a>
     <ul>
       <slot></slot>

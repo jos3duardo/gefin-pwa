@@ -13,7 +13,11 @@
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     let elems = document.querySelectorAll('.modal');
-    let instances = M.Modal.init(elems);
+    let option = {
+      opacity: 0.8,
+      startingTop: '30%'
+    }
+    let instances = M.Modal.init(elems, option);
   });
 
 

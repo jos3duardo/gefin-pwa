@@ -3,7 +3,7 @@
       <span>
         <nav-bar-vue logo="Gefin - Space" url="/" cor="black" >
           <li v-if="user"><a href="/" class="btb">Home</a></li>
-          <li v-if="!user"> <router-link to="/login">Login</router-link></li>
+<!--          <li v-if="!user"> <router-link to="/login">Login</router-link></li>-->
           <li v-if="user"> <router-link to="/profile">{{user.name}}</router-link></li>
         </nav-bar-vue>
     </span>
