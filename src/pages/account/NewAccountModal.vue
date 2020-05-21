@@ -13,16 +13,14 @@
             <label for="agency">Agência</label>
           </div>
           <div class="input-field col s12 m4 lighten-4">
-            <input id="account_number" type="text" class="validate" name="account_number" }}">
+            <input id="account_number" type="text" class="validate" name="account_number">
             <label for="account_number">Conta</label>
           </div>
           <div class="input-field col s12 m8 l8">
-            <select class="icons validate" id="bancos" name="bank_id" v-for="item of banks">
-              <!--            <option value="{{$bank->id}}" data-icon="">{{$bank->title}}</option>-->
-              <option value="">Cadastre um banco</option>
-              <option value=" item.id ">{{ item.title }}</option>
+            <select>
+              <option value="" disabled selected>Escolha um banco</option>
             </select>
-            <label for="bancos">Banco</label>
+            <label>Nome do Banco</label>
           </div>
           <div class="input-field col s12 m4 l4">
             <input id="balance_initial" type="number" name="balance_initial" class="validate">
@@ -30,42 +28,35 @@
           </div>
         </div>
         <div class="row center">
-          <div class="input-field col s12 m3 l3 ">
+          <div class="input-field col s12 m4 l4 ">
             <select class="icons" id="categoria" name="category_id">
-              <!--            @forelse($categories as $category)-->
-              <!--            <option value="{{$category->id}}" >{{$category->name}} </option>-->
-              <!--            @empty-->
               <option value="" >Cadastre uma categoria</option>
-              <!--            @endforelse-->
             </select>
             <label for="categoria">Categoria</label>
           </div>
-
-          <div class="input-field col s12 m3 l3">
-            <label>
-              <input type="checkbox" name="default"/>
-              <span>Padrão Desconto</span>
-            </label>
+<!--          <div class="input-field col s12 m3 l3">-->
+<!--            <label>-->
+<!--              <input type="checkbox" name="default"/>-->
+<!--              <span>Padrão Desconto</span>-->
+<!--            </label>-->
+<!--          </div>-->
+<!--          <div class="input-field col s12 m3 l3">-->
+<!--            <label>-->
+<!--              <input type="checkbox" name="show"/>-->
+<!--              <span>Exibir na tela de resumo</span>-->
+<!--            </label>-->
+<!--          </div>-->
+<!--          <div class="input-field col s12 m3 l3">-->
+<!--            <label>-->
+<!--              <input type="checkbox" name="sum"/>-->
+<!--              <span>Não somar aos Totais</span>-->
+<!--            </label>-->
+<!--          </div>-->
+          <div class="col s12 m2 l2 right">
+            <button class="btn waves-effect waves-light" type="submit" >Salvar
+              <i class="material-icons right">send</i>
+            </button>
           </div>
-          <div class="input-field col s12 m3 l3">
-            <label>
-              <input type="checkbox" name="show"/>
-              <span>Exibir na tela de resumo</span>
-            </label>
-          </div>
-          <div class="input-field col s12 m3 l3">
-            <label>
-              <input type="checkbox" name="sum"/>
-              <span>Não somar aos Totais</span>
-            </label>
-          </div>
-        </div>
-        <br>
-
-        <div class="row">
-          <button class="btn waves-effect waves-light" type="submit" >Salvar
-            <i class="material-icons right">send</i>
-          </button>
         </div>
       </form>
     </div>
@@ -73,13 +64,17 @@
 
 </template>
 <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
 
   export default {
     name: 'NewAccountModal',
     props: ['identifier'],
-    data(){
-      return{
-        banks: []
+    data () {
+      return {
+        banksListUser: {"Apple":'',"Microsofit":''}
       }
     },
     created() {
@@ -92,14 +87,9 @@
           "headers": {"authorization": "Bearer " + this.$store.getters.getToken}
         })
         .then(function (response) {
-          console.log(response)
+          console.log(response.data)
+
           if (response.data.status){
-            var autocompletebank = M.Autocomplete.init(elemsAutoComplete,{
-              data: banks,
-              limit: 5
-            });
-            autocompletebank.updateData(banks);
-          }else {
 
           }
 
@@ -108,4 +98,5 @@
       }
     }
   }
+
 </script>
