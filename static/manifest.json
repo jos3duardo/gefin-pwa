@@ -1,6 +1,6 @@
 {
-  "name": "pwa-gefin",
-  "short_name": "pwagefin",
+  "name": "Gefin-Space",
+  "short_name": "gefin",
   "icons": [
     {
       "src": "/static/img/icons/android-chrome-192x192.png",
